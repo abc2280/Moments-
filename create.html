@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your custom interactive digital experience with Moment.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="create.css">
+  <title>Create Your Experience — Moment</title>
+</head>
+<body class="create-page">
+
+  <header class="nav nav--scrolled" id="create-nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__back" aria-label="Back to home">
+        <span class="nav__back-icon">←</span> Back
+      </a>
+      <a href="index.html" class="nav__logo" data-brand>Moment</a>
+      <div class="nav__step-badge" id="step-badge">01 / 02</div>
+    </div>
+  </header>
+
+  <div class="draft-banner is-hidden" id="draft-banner" role="alert">
+    <div class="draft-banner__content">
+      <span class="draft-banner__icon">💾</span>
+      <span class="draft-banner__text">You have an unfinished request saved.</span>
+    </div>
+    <div class="draft-banner__actions">
+      <button type="button" class="btn btn--ghost btn--sm" id="btn-restore-draft">Continue</button>
+      <button type="button" class="btn btn--text btn--sm" id="btn-discard-draft">Start Over</button>
+    </div>
+  </div>
+
+  <main class="create-main">
+    <div class="container create-container">
+      <div class="progress-bar-wrap" aria-hidden="true">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progress-fill" style="width: 50%;"></div>
+        </div>
+      </div>
+
+      <form id="experience-form" class="create-form" novalidate>
+
+        <section class="form-step form-step--active" data-step="1" id="step-1">
+          <div class="step-header">
+            <span class="step-number">01 / 02</span>
+            <h1 class="step-title">Tell us about them.</h1>
+            <p class="step-subtitle">Just enough for us to make it personal.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="recipient-name">Who is this for? <span class="required-star">*</span></label>
+            <input type="text" id="recipient-name" class="form-control" placeholder="Their name" autocomplete="off" required>
+            <div class="field-error-msg" id="error-recipient-name" role="alert">Please enter their name.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Occasion <span class="required-star">*</span></label>
+            <div class="options-grid options-grid--occasions" id="occasion-options" role="group" aria-label="Occasion">
+              <button type="button" class="option-card" data-occasion="birthday"><span class="option-card__icon">🎂</span><div class="option-card__text"><strong class="option-card__title">Birthday</strong><span class="option-card__desc">Make their day unforgettable.</span></div></button>
+              <button type="button" class="option-card" data-occasion="anniversary"><span class="option-card__icon">💍</span><div class="option-card__text"><strong class="option-card__title">Anniversary</strong><span class="option-card__desc">Celebrate a love story.</span></div></button>
+              <button type="button" class="option-card" data-occasion="romantic"><span class="option-card__icon">❤️</span><div class="option-card__text"><strong class="option-card__title">Romantic</strong><span class="option-card__desc">Soft light and words that land.</span></div></button>
+              <button type="button" class="option-card" data-occasion="friendship"><span class="option-card__icon">🫂</span><div class="option-card__text"><strong class="option-card__title">Friendship</strong><span class="option-card__desc">Inside jokes made real.</span></div></button>
+              <button type="button" class="option-card" data-occasion="apology"><span class="option-card__icon">🥀</span><div class="option-card__text"><strong class="option-card__title">Apology</strong><span class="option-card__desc">When "I'm sorry" isn't enough.</span></div></button>
+              <button type="button" class="option-card" data-occasion="confession"><span class="option-card__icon">💌</span><div class="option-card__text"><strong class="option-card__title">Confession</strong><span class="option-card__desc">Say what you've held back.</span></div></button>
+              <button type="button" class="option-card" data-occasion="wedding"><span class="option-card__icon">✨</span><div class="option-card__text"><strong class="option-card__title">Wedding</strong><span class="option-card__desc">A love story in motion.</span></div></button>
+              <button type="button" class="option-card" data-occasion="farewell"><span class="option-card__icon">🌅</span><div class="option-card__text"><strong class="option-card__title">Farewell</strong><span class="option-card__desc">A goodbye they'll remember.</span></div></button>
+              <button type="button" class="option-card" data-occasion="yearWrapped"><span class="option-card__icon">🎬</span><div class="option-card__text"><strong class="option-card__title">Year Wrapped</strong><span class="option-card__desc">Your year, told like a film.</span></div></button>
+              <button type="button" class="option-card" data-occasion="justBecause"><span class="option-card__icon">🌌</span><div class="option-card__text"><strong class="option-card__title">Just Because</strong><span class="option-card__desc">No reason needed.</span></div></button>
+              <button type="button" class="option-card" data-occasion="other"><span class="option-card__icon">🌟</span><div class="option-card__text"><strong class="option-card__title">Something Else</strong><span class="option-card__desc">A custom idea of your own.</span></div></button>
+            </div>
+            <div class="field-error-msg" id="error-occasion" role="alert">Please choose an occasion.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Relationship <span class="required-star">*</span></label>
+            <div class="chips-grid" id="relationship-chips" role="group" aria-label="Relationship">
+              <button type="button" class="chip-btn" data-rel="Partner">Partner</button>
+              <button type="button" class="chip-btn" data-rel="Crush">Crush</button>
+              <button type="button" class="chip-btn" data-rel="Best Friend">Best Friend</button>
+              <button type="button" class="chip-btn" data-rel="Friend">Friend</button>
+              <button type="button" class="chip-btn" data-rel="Sibling">Sibling</button>
+              <button type="button" class="chip-btn" data-rel="Parent">Parent</button>
+              <button type="button" class="chip-btn" data-rel="Family">Family</button>
+              <button type="button" class="chip-btn" data-rel="Colleague">Colleague</button>
+              <button type="button" class="chip-btn" data-rel="Teammate">Teammate</button>
+              <button type="button" class="chip-btn" data-rel="Other">Other</button>
+            </div>
+            <div class="field-error-msg" id="error-relationship" role="alert">Please select a relationship.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="about-them">Anything we should know? <span class="optional-tag">(Optional)</span></label>
+            <p class="field-hint">An inside joke, special memory, personality detail, or a line you want us to remember.</p>
+            <textarea id="about-them" class="form-control" rows="4" placeholder="Tell us what makes them special..."></textarea>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="2" id="step-2">
+          <div class="step-header">
+            <span class="step-number">02 / 02</span>
+            <h1 class="step-title">Let's make it.</h1>
+            <p class="step-subtitle">One last thing.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customer-name">Your name <span class="required-star">*</span></label>
+            <input type="text" id="customer-name" class="form-control" placeholder="Your full name" autocomplete="name" required>
+            <div class="field-error-msg" id="error-customer-name" role="alert">Please enter your name.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customer-whatsapp">Where should we reach you? <span class="required-star">*</span></label>
+            <p class="field-hint">WhatsApp number or Instagram @username</p>
+            <input type="text" id="customer-whatsapp" class="form-control" placeholder="WhatsApp number or @username" required>
+            <div class="field-error-msg" id="error-customer-whatsapp" role="alert">Please enter WhatsApp or Instagram.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Package <span class="required-star">*</span></label>
+            <div class="packages-grid" id="packages-grid" role="group" aria-label="Package">
+              <div class="package-card" data-package="essential" role="button" tabindex="0">
+                <div class="package-card__header"><h3 class="package-card__title">ESSENTIAL</h3><div class="package-card__price">₹99</div></div>
+                <p class="package-card__tagline">Your story, turned into an interactive experience.</p>
+                <p class="package-card__media-note">No customer photos required.</p>
+                <ul class="package-card__features"><li>✓ Personalized experience</li><li>✓ Custom content</li><li>✓ Interactive animations</li><li>✓ Shareable link &amp; QR</li></ul>
+                <span class="package-card__btn btn btn--ghost">Choose Essential</span>
+              </div>
+              <div class="package-card package-card--popular" data-package="memories" role="button" tabindex="0">
+                <div class="package-badge">Most Popular</div>
+                <div class="package-card__header"><h3 class="package-card__title">MEMORIES</h3><div class="package-card__price">₹149</div></div>
+                <p class="package-card__tagline">Bring your favorite memories into it.</p>
+                <p class="package-card__media-note">Photos collected via WhatsApp after ordering.</p>
+                <ul class="package-card__features"><li>✓ Everything in Essential</li><li>✓ Personalized photos</li><li>✓ Memory sections</li><li>✓ Shareable link &amp; QR</li></ul>
+                <span class="package-card__btn btn btn--primary">Choose Memories</span>
+              </div>
+              <div class="package-card" data-package="cinematic" role="button" tabindex="0">
+                <div class="package-card__header"><h3 class="package-card__title">CINEMATIC</h3><div class="package-card__price">₹199</div></div>
+                <p class="package-card__tagline">A full multimedia experience.</p>
+                <p class="package-card__media-note">Photos &amp; videos collected via WhatsApp after ordering.</p>
+                <ul class="package-card__features"><li>✓ Everything in Memories</li><li>✓ Video integration</li><li>✓ Cinematic treatment</li><li>✓ Shareable link &amp; QR</li></ul>
+                <span class="package-card__btn btn btn--ghost">Choose Cinematic</span>
+              </div>
+            </div>
+            <div class="price-breakdown-card" id="price-breakdown">
+              <div class="price-breakdown__banner">Only ₹50 to get started.</div>
+              <div class="price-breakdown__rows">
+                <div class="price-row"><span>Total</span><strong id="calc-total">₹149</strong></div>
+                <div class="price-row price-row--highlight"><span>Advance now</span><strong id="calc-advance">₹50</strong></div>
+                <div class="price-row"><span>Remaining later</span><strong id="calc-remaining">₹99</strong></div>
+              </div>
+            </div>
+            <div class="field-error-msg" id="error-package" role="alert">Please select a package.</div>
+
+            <div class="media-info-card" id="media-info-card">
+              <div class="media-info-card__icon" aria-hidden="true">💬</div>
+              <div class="media-info-card__body">
+                <h3 class="media-info-card__title">Media comes after.</h3>
+                <p class="media-info-card__text">Once you submit, we'll reach you on WhatsApp to collect any photos or videos your MOMENT needs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="submit-state" id="submit-state-ready">
+            <button type="button" class="btn btn--primary btn--large btn--full" id="btn-submit-order">Submit Request →</button>
+          </div>
+          <div class="submit-error-state is-hidden" id="submit-error-state">
+            <div class="payment-card" style="border-color: rgba(232, 93, 138, 0.5);">
+              <span class="payment-icon">⚠️</span>
+              <h2 class="payment-title">We couldn't send your request yet.</h2>
+              <p class="payment-subtitle" id="error-message-text">Please try again. Your responses are safe.</p>
+              <button type="button" class="btn btn--primary btn--large btn--full" id="btn-retry-submit">Try Again</button>
+            </div>
+          </div>
+          <div class="confirmation-state is-hidden" id="confirmation-state"></div>
+        </section>
+      </form>
+    </div>
+  </main>
+
+  <footer class="create-bar" id="create-bar">
+    <div class="container create-bar__inner">
+      <button type="button" class="btn btn--ghost" id="btn-prev" style="visibility: hidden;">← Back</button>
+      <div class="create-bar__status">
+        <span class="create-bar__step-text" id="bar-step-text">Step 1 of 2</span>
+        <div class="create-bar__dots" id="bar-dots"></div>
+      </div>
+      <button type="button" class="btn btn--primary" id="btn-next">Next →</button>
+    </div>
+  </footer>
+
+  <script src="create.js"></script>
+</body>
+</html>
