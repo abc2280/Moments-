@@ -6,7 +6,7 @@ const BRAND_NAME = 'Moment';
 
 const ORDER_FORM_URL = 'create.html';
 
-const INSTAGRAM_URL = 'https://instagram.com/yourhandle';
+const INSTAGRAM_URL = 'https://www.instagram.com/moment.experiences/';
 
 const PROMO_VIDEO = {
   src: 'assets/promo.mp4',
